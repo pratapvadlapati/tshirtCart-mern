@@ -5,16 +5,16 @@ import { addItemToCart } from './CartHelper';
 
 
 
-const Card = (product, addToCart = true, removeFromCart = false) => {
+const Card = ({product, removeFromCart = false, addToCart = true}) => {
   
-
+    
     //create state
     const [redirect, setRedirect] = useState(false);
 
   //create variables with values or defualt
-  const cartTitle       = product ? product.product.name : "T-shirt";
-  const cartDescription = product ? product.product.description : "Not Available";
-  const cartPrice       = product ? product.product.price : "0";
+  const cartTitle       = product ? product.name : "T-shirt";
+  const cartDescription = product ? product.description : "Not Available";
+  const cartPrice       = product ? product.price : "0";
 
 
   const addProdToCart = () => {
@@ -33,12 +33,13 @@ const Card = (product, addToCart = true, removeFromCart = false) => {
 
     //create methods for conditional rendering of button
     const ShowAddToCart = (addToCart) => {
-          console.log('fromcart', addToCart)
+  
         return(
             addToCart && 
             <button
-            onClick={addProdToCart}
+            
             className="btn btn-block btn-outline-success mt-2 mb-2"
+            onClick={addProdToCart}
           >
             Add to Cart
           </button>

@@ -6,8 +6,9 @@ import { API }from '../backend';
 const ImageHelper = ({product}) => {
  
     //construct img url
-    const imageUrl =  product  ?  `${API}/product/photo/${product.product._id}}` : 'https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif';
-    console.log(product);
+    const imageUrl =  product  ?  `${API}/product/photo/${
+      product._id}}` : 'https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif';
+   
     return(
         <div className="rounded border border-success p-2">
                     <img
