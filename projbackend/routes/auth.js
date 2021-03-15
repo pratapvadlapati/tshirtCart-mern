@@ -12,7 +12,7 @@ router.get('/signout', auth.signout);
 
 
 //test
-router.get('/test', auth.isSignedIn,  (req, res)=>{
+router.get('/test', auth.isSignedIn, (req, res) => {
     res.send('protected route!');
 })
 

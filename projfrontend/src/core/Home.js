@@ -21,7 +21,7 @@ function Home(
                  }else{
                      setProducts(data);
                  }
-             })
+             }).catch(err => console.log(err))  
      }
  
      //run the methods

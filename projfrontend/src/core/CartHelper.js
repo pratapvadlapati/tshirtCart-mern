@@ -20,3 +20,30 @@ export const loadCart = () => {
         }
     }
 }
+
+
+export const removeItemFromCart = (productId) => {
+    let cart = [];
+    if (typeof window !== undefined) {
+        if(localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'))
+        }
+        cart.map((product, index)=> {
+            if(product._id === productId) {
+                cart.splice(index, 1);
+                
+            }
+       })
+           localStorage.setItem('cart', JSON.stringify(cart));
+    }
+        return cart;
+}
+
+
+//define a middle ware method to remove from cart after payament and referesh the page
+export const cartEmpty = (next) => {
+    if(window !== undefined) {
+        localStorage.removeItem('cart')
+        next()
+    }
+}
